@@ -1,0 +1,20 @@
+CONFIG_ENV_CFLAGS += \
+    -mcpu=cortex-m4 \
+    -c -Wall -Wextra \
+    -Wno-unused-parameter -Wno-missing-field-initializers \
+    -fmessage-length=0 -fno-exceptions -fno-builtin \
+    -ffunction-sections -fdata-sections -funsigned-char \
+    -MMD -fno-delete-null-pointer-checks \
+    -fomit-frame-pointer -Os -g1 \
+    -DUSING_UTILS_JSON \
+    -DIOTX_NET_INIT_WITH_PK_EXT
+
+CFLAGS                  +=  -std=gnu99
+CXXFLAGS                +=  -std=gnu++98 -fno-rtti -Wvla
+
+CROSS_PREFIX            := arm-none-eabi-
+
+CONFIG_src/platform     :=
+CONFIG_sample           :=
+CONFIG_src/sdk-tests    :=
+CONFIG_src/tls          :=

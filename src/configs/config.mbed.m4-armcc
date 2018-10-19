@@ -1,0 +1,21 @@
+CONFIG_ENV_CFLAGS += \
+    --cpu=Cortex-M4 \
+    -c --gnu -Otime --split_sections \
+    --apcs=interwork --brief_diagnostics --restrict \
+    --multibyte_chars -O3 \
+    -DUSING_UTILS_JSON \
+    -DIOTX_NET_INIT_WITH_PK_EXT
+
+CFLAGS                  +=  --md --no_depend_system_headers --c99
+CXXFLAGS                +=  --cpp --no_rtti --no_vla
+
+OVERRIDE_CC             := armcc
+OVERRIDE_CXX            := armcc
+OVERRIDE_AS             := armasm
+OVERRIDE_AR             := armar
+OVERRIDE_LINK           := armlink
+
+CONFIG_src/platform     :=
+CONFIG_sample           :=
+CONFIG_src/sdk-tests    :=
+CONFIG_src/tls          :=
