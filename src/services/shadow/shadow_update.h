@@ -22,7 +22,7 @@ iotx_update_ack_wait_list_pt iotx_shadow_update_wait_ack_list_add(
             size_t token_len,
             iotx_push_cb_fpt cb,
             void *pcontext,
-            uint32_t timeout);
+            uint32_t timeout_s);
 
 void iotx_shadow_update_wait_ack_list_remove(iotx_shadow_pt pshadow, iotx_update_ack_wait_list_pt element);
 

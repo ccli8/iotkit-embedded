@@ -28,7 +28,7 @@ iotx_update_ack_wait_list_pt iotx_shadow_update_wait_ack_list_add(
             size_t token_len,
             iotx_push_cb_fpt cb,
             void *pcontext,
-            uint32_t timeout)
+            uint32_t timeout_s)
 {
     int i;
     iotx_update_ack_wait_list_pt list = pshadow->inner_data.update_ack_wait_list;
@@ -59,7 +59,7 @@ iotx_update_ack_wait_list_pt iotx_shadow_update_wait_ack_list_add(
     list[i].token[token_len] = '\0';
 
     iotx_time_init(&list[i].timer);
-    utils_time_countdown_ms(&list[i].timer, timeout);
+    utils_time_countdown_ms(&list[i].timer, timeout_s * 1000);
 
     shadow_debug("Add update ACK list");
 
